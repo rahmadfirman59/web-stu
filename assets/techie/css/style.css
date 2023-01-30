@@ -133,12 +133,12 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: rgba(24, 6, 185, 0.8);
+  background: rgb(44 44 44 / 86%);
   padding: 12px 0;
 }
 
 #header .logo {
-  font-size: 32px;
+  font-size: 20px;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -152,7 +152,15 @@ h6 {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 52px;
+}
+
+h5.logo{
+  transition: 1s;
+}
+
+#header.header-scrolled .container h5.logo{
+  display: none;
 }
 
 /*--------------------------------------------------------------
@@ -438,7 +446,7 @@ h6 {
 #hero {
   width: 100%;
   height: 100vh;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../img/hero-bg.jpg") center center no-repeat;
+  background: linear-gradient(45deg, rgb(250 148 58 / 90%) 0%, rgb(214 15 15 / 90%) 100%), url(../img/hero-bg.jpg) center center no-repeat;
   background-size: cover;
 }
 
@@ -629,7 +637,7 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #5846f9;
+  color: #c37000;
 }
 
 .about .content p:last-child {
@@ -646,12 +654,12 @@ section {
   border-radius: 5px;
   transition: 0.5s;
   color: #fff;
-  background: linear-gradient(45deg, #5846f9 0%, #7b27d8 100%);
+  background: linear-gradient(45deg, rgba(250 148 58 / 100%) 0%, rgb(214 15 15 / 100%) 100%);
   position: relative;
 }
 
 .about .content .read-more:hover {
-  background: linear-gradient(180deg, #5846f9 0%, #7b27d8 100%);
+  background: linear-gradient(45deg, rgba(250 148 58 / 80%) 0%, rgb(214 15 15 / 80%) 100%);
 }
 
 .about .content .read-more i {
@@ -1523,7 +1531,7 @@ section {
 #footer {
   color: #fff;
   font-size: 14px;
-  background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../img/hero-bg.jpg") center center no-repeat;
+  background: linear-gradient(45deg, rgba(250 148 58 / 90%) 0%, rgb(214 15 15 / 90%) 100%), url(../img/hero-bg.jpg) center center no-repeat;
   background-size: cover;
 }
 
@@ -1537,7 +1545,7 @@ section {
 }
 
 #footer .footer-top .footer-contact h3 {
-  font-size: 28px;
+  font-size: 24px;
   margin: 0 0 30px 0;
   padding: 2px 0 2px 0;
   line-height: 1;
@@ -1590,6 +1598,7 @@ section {
   color: rgba(255, 255, 255, 0.8);
   transition: 0.3s;
   display: inline-block;
+  font-size: 17px;
   line-height: 1;
 }
 
@@ -1646,7 +1655,7 @@ section {
 }
 
 #footer .copyright-wrap {
-  border-top: 1px solid #8577fb;
+  border-top: 1px solid #fff;
 }
 
 #footer .credits {

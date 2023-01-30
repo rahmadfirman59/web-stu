@@ -10,8 +10,10 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/techie/img/favicon/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/techie/img/favicon/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/techie/img/favicon/favicon-16x16.png') }}">
+  <link rel="manifest" href="{{ asset('assets/techie/img/favicon/site.webmanifest') }}">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -27,6 +29,8 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/techie/css/style.css') }}" rel="stylesheet">
 
+  @yield('css')
+
 
 </head>
 
@@ -35,9 +39,9 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      {{-- <h1 class="logo"><a href="index.html">Techie</a></h1> --}}
+      <a href="index.html" class="logo"><img src="{{ asset('assets/techie/img/logo-1.png') }}" alt="" class="img-fluid"></a>
+      <h5 class="logo"><a href="#top">PT. SULAWESI TAMBANG UTAMA</a></h5>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <a href="index.html" class="logo"><img src="{{ asset('assets/techie/img/logo.png') }}" alt="" class="img-fluid"></a>
 
       <nav id="navbar" class="navbar">
         <ul>
@@ -80,45 +84,38 @@
       <div class="container">
         <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>Techie</h3>
+          <div class="col-lg-4 col-md-6 footer-contact">
+            <img src="{{ asset('assets/techie/img/logo-1.png') }}" class="img-fluid" width="75px" alt="">
+            <h3 class="mt-3">PT. SULAWESI TAMBANG UTAMA</h3>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              <strong>Phone:</strong> +62 812 3336 2166<br>
+              <strong>Email:</strong> sulawesi.tambangutama@gmail.com<br>
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
+          <div class="col-lg-4 col-md-6 footer-links">
+            <div class="d-flex justify-content-start">
+              <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Beranda</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Portofolio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
             </ul>
+            </div>
           </div>
 
           <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
+            <h4>Kantor Pusat</h4>
+            <div class="d-flex mb-3">
+              <i class="bi bi-geo-alt-fill" style="margin-top: 1px"></i>
+              <p class="mx-1">Ruko Dutamas Fatmawati A1/38 Desa<br> Kelurahan Cipete Utara, Kec Kebayoran Baru, Kota Adm. Jakarta Selatan, Propinsi DKI Jakarta - 12150</p>
+            </div>
+            <h4>Lokasi Usaha</h4>
+            <div class="d-flex">
+              <i class="bi bi-geo-alt-fill" style="margin-top: 1px"></i>
+              <p class="mx-1">Desa Ganda-Ganda<br> Dusun/Kelurahan Bahoue, Kec Petasia, Kab Morowali Utara, Sulawesi Tengah - 94971</p>
+            </div>
           </div>
 
         </div>
@@ -129,15 +126,14 @@
       <div class="copyright-wrap d-md-flex py-4">
         <div class="me-md-auto text-center text-md-start">
           <div class="copyright">
-            &copy; Copyright <strong><span>Techie</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>PT. SU</span></strong>. All Rights Reserved
           </div>
           <div class="credits">
             <!-- All the links in the footer should remain intact. -->
             <!-- You can delete the links only if you purchased the pro version. -->
             <!-- Licensing information: https://bootstrapmade.com/license/ -->
             <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/techie-free-skin-bootstrap-3/ -->
-            Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-          </div>
+            </div>
         </div>
         <div class="social-links text-center text-md-right pt-3 pt-md-0">
           <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
