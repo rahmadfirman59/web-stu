@@ -24,6 +24,7 @@
   <link href="{{ asset('assets/techie/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/techie/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/techie/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets\techie\vendor\owl-carousel\owl.carousel.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/techie/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -39,35 +40,18 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo"><img src="{{ asset('assets/techie/img/logo-1.png') }}" alt="" class="img-fluid"></a>
+      <a href="#" class="logo"><img src="{{ asset('assets/techie/img/logo-1.png') }}" alt="" class="img-fluid"></a>
       <h5 class="logo"><a href="#top">PT. SULAWESI TAMBANG UTAMA</a></h5>
       <!-- Uncomment below if you prefer to use an image logo -->
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <li><a class="nav-link scrollto" href="#tentang-kami">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" href="#dasar_hukum">Dasar Hukum</a></li>
           <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" href="#our_patner">Our Patner</a></li>
           <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -105,7 +89,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
+          <div class="col-lg-4 col-md-12 footer-newsletter">
             <h4>Kantor Pusat</h4>
             <div class="d-flex mb-3">
               <i class="bi bi-geo-alt-fill" style="margin-top: 1px"></i>
@@ -126,7 +110,7 @@
       <div class="copyright-wrap d-md-flex py-4">
         <div class="me-md-auto text-center text-md-start">
           <div class="copyright">
-            &copy; Copyright <strong><span>PT. SU</span></strong>. All Rights Reserved
+            &copy; Copyright 2023 <strong><span>PT. STU</span></strong>.
           </div>
           <div class="credits">
             <!-- All the links in the footer should remain intact. -->
@@ -152,15 +136,19 @@
 
   <!-- Vendor JS Files -->
   <script src="{{ asset('assets/techie/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+  <script src="{{ asset('assets/techie/js/jquery-3.6.3.min.js') }}"></script>
   <script src="{{ asset('assets/techie/vendor/aos/aos.js') }}"></script>
   <script src="{{ asset('assets/techie/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/techie/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('assets/techie/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/techie/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets\techie\vendor\owl-carousel\owl.carousel.min.js') }}"></script>
   <script src="{{ asset('assets/techie/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/techie/js/main.js') }}"></script>
+
+  @yield('script')
 
 </body>
 
