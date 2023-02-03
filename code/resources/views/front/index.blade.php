@@ -653,7 +653,7 @@
         <div data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Our Patner</h2>
+                <h2>Our Patners</h2>
                 <p>Kami juga bekerja sama dengan perusahaan perusahaan tambang khususnya nikel.</p>
             </div>
 
