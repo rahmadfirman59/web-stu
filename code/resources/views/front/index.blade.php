@@ -153,7 +153,7 @@
                         <li><i class="bi bi-check-circle"></i> Sulawesi Tenggara</li>
                         <li><i class="bi bi-check-circle"></i> Halmahera</li>
                     </ul>
-                    <a href="#" class="read-more">Kontak Kami <i class="bi bi-long-arrow-right"></i></a>
+                    {{-- <a href="#" class="read-more">Kontak Kami <i class="bi bi-long-arrow-right"></i></a> --}}
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 d-lg-flex d-lg-block d-none order-lg-1 content justify-content-center about-img"
                     data-aos="fade-left">
@@ -168,30 +168,24 @@
     
                 <div class="row counters">
     
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                    <div class="col-lg-4 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Clients</p>
                     </div>
     
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                    <div class="col-lg-4 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Projects</p>
+                        <p>Tambang</p>
                     </div>
     
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1"
+                    <div class="col-lg-4 col-6 text-center">
+                        <span data-purecounter-start="0" data-purecounter-end="563" data-purecounter-duration="1"
                             class="purecounter"></span>
-                        <p>Hours Of Support</p>
+                        <p>Pegawai</p>
                     </div>
-    
-                    <div class="col-lg-3 col-6 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1"
-                            class="purecounter"></span>
-                        <p>Hard Workers</p>
-                    </div>
-    
+
                 </div>
     
             </div>
@@ -248,8 +242,7 @@
                     
                     <div class="section-title">
                         <h2>Struktur Organisasi</h2>
-                        <p style="color: #196DAD"><b>STRUCTURE PT.STU</b></p>
-                        <p style="color: #196DAD"><u>Site Lambolo</u></p>
+                        <p style="color: #196DAD"><b>STRUKTUR ORGANISASI PT.STU</b></p>
                 </div>
 
                 <img src="{{ asset('assets/techie/img/struktur-stu-1.png') }}" id="structure-image" alt="" class="img-fluid">
