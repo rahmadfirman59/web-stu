@@ -17,3 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/', [App\Http\Controllers\Front\IndexController::class, 'index'])->name('front.index');
+Route::get('/admin', [App\Http\Controllers\Admin\AdminController::class, 'index'])->name('admin.login');
+
+Route::group(['middleware' => ['checklogin']], function () {
+
+});
