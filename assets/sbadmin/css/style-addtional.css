@@ -1,0 +1,22 @@
+.form-group .control-label, .form-group > label{
+    font-weight: 600;
+    color: #34395e;
+    font-size: 12px!important;
+}
+
+.input-group-text, select.form-control:not([size]):not([multiple]), .form-control:not(.form-control-sm):not(.form-control-lg){
+    font-size: 14px;
+}
+
+.btn.close{
+    line-height: 1.5;
+    box-shadow: 0 2px 6px #e1e5e8;
+    border-color: #cdd3d8;
+    font-size: 14px;
+    padding: .375rem .75rem;
+    background-color: #cdd3d8;
+}
+
+.modal-title{
+    font-weight: 700;
+}
