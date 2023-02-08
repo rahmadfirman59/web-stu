@@ -7,21 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('assets/sbadmin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('assets/sbadmin/vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
     <link
     href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
     rel="stylesheet">
     
     <!-- Custom styles for this template-->
-    <link href="{{ asset('assets\sbadmin\vendor\bootstrap\css\bootstrap.min.css') }}" rel="stylesheet" >
-    <link href="{{ asset('assets/sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets\sbadmin\css\datatables.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets\sbadmin\css\style-addtional.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('assets\sbadmin\vendor\bootstrap\css\bootstrap.min.css')); ?>" rel="stylesheet" >
+    <link href="<?php echo e(asset('assets/sbadmin/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets\sbadmin\css\datatables.min.css')); ?>" rel="stylesheet">
+    <link href="<?php echo e(asset('assets\sbadmin\css\style-addtional.css')); ?>" rel="stylesheet">
 
     <style>
         .dataTables_wrapper{
@@ -63,8 +63,8 @@
             <hr class="sidebar-divider my-0">
             
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item {{ (request()->is('admin/dashboard')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
+            <li class="nav-item <?php echo e((request()->is('admin/dashboard')) ? 'active' : ''); ?>">
+                <a class="nav-link" href="<?php echo e(route('admin.dashboard')); ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -72,88 +72,15 @@
                 
             <hr class="sidebar-divider">
 
-            <li class="nav-item {{ (request()->is('admin/slider')) ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('slider') }}">
+            <li class="nav-item <?php echo e((request()->is('admin/slider')) ? 'active' : ''); ?>">
+                <a class="nav-link" href="<?php echo e(route('slider')); ?>">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Slider</span></a>
             </li>
-{{-- 
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Interface
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-wrench"></i>
-                    <span>Utilities</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Utilities:</h6>
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-                        <a class="collapse-item" href="utilities-border.html">Borders</a>
-                        <a class="collapse-item" href="utilities-animation.html">Animations</a>
-                        <a class="collapse-item" href="utilities-other.html">Other</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Addons
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li> --}}
 
 
-            {{-- <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li> --}}
+
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -274,7 +201,7 @@
                                 </h6>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('assets/sbadmin/img/undraw_profile_1.svg') }}"
+                                        <img class="rounded-circle" src="<?php echo e(asset('assets/sbadmin/img/undraw_profile_1.svg')); ?>"
                                             alt="...">
                                         <div class="status-indicator bg-success"></div>
                                     </div>
@@ -286,7 +213,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('assets/sbadmin/img/undraw_profile_2.svg') }}"
+                                        <img class="rounded-circle" src="<?php echo e(asset('assets/sbadmin/img/undraw_profile_2.svg')); ?>"
                                             alt="...">
                                         <div class="status-indicator"></div>
                                     </div>
@@ -298,7 +225,7 @@
                                 </a>
                                 <a class="dropdown-item d-flex align-items-center" href="#">
                                     <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="{{ asset('assets/sbadmin/img/undraw_profile_3.svg') }}"
+                                        <img class="rounded-circle" src="<?php echo e(asset('assets/sbadmin/img/undraw_profile_3.svg')); ?>"
                                             alt="...">
                                         <div class="status-indicator bg-warning"></div>
                                     </div>
@@ -332,7 +259,7 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                                 <img class="img-profile rounded-circle"
-                                    src="{{ asset('assets/sbadmin/img/undraw_profile.svg') }}">
+                                    src="<?php echo e(asset('assets/sbadmin/img/undraw_profile.svg')); ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -350,7 +277,7 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" href="<?php echo e(route('logout')); ?>" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
                                 </a>
@@ -362,7 +289,7 @@
                 </nav>
                 <!-- End of Topbar -->
 
-                @yield('content')
+                <?php echo $__env->yieldContent('content'); ?>
 
             </div>
             <!-- End of Main Content -->
@@ -388,7 +315,7 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
-    @yield('modal')
+    <?php echo $__env->yieldContent('modal'); ?>
     
     <!-- Modal Load-->
     <div class="modal fade" role="dialog" id="modal_loading" data-keyboard="false" data-backdrop="static">
@@ -396,7 +323,7 @@
         <div class="modal-content">
             <div class="modal-body pt-0" style="background-color: #FAFAF8; border-radius: 6px;">
                 <div class="text-center">
-                    <img style="border-radius: 4px; height: 140px;" src="{{ asset('assets/sbadmin/img/project/icon/loader.gif') }}" alt="Loading">
+                    <img style="border-radius: 4px; height: 140px;" src="<?php echo e(asset('assets/sbadmin/img/project/icon/loader.gif')); ?>" alt="Loading">
                     <h6 style="position: absolute; bottom: 10%; left: 37%;" class="pb-2">Mohon Tunggu..</h6>
                 </div>
             </div>
@@ -424,22 +351,22 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/sbadmin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets\sbadmin\vendor\bootstrap\js\bootstrap.bundle.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/jquery/jquery.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets\sbadmin\vendor\bootstrap\js\bootstrap.bundle.min.js')); ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('assets/sbadmin/js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/vendor/sweetalert/sweetalert.min.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/js/script-additional.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/js/sb-admin-2.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/sweetalert/sweetalert.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/js/script-additional.js')); ?>"></script>
 
     <!-- Page level custom scripts -->
-    <script src="{{ asset('assets/sbadmin/js/datatables.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/js/datatables.min.js')); ?>"></script>
 
-    @yield('js')
+    <?php echo $__env->yieldContent('js'); ?>
 
 </body>
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\web-stu\code\resources\views/admin/layouts/layouts.blade.php ENDPATH**/ ?>

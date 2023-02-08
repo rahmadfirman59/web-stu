@@ -180,7 +180,7 @@
                         <p>Tambang</p>
                     </div>
     
-                    <div class="col-lg-4 col-6 text-center">
+                    <div class="col-lg-4 col-12 text-center">
                         <span data-purecounter-start="0" data-purecounter-end="563" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Pegawai</p>

@@ -1,6 +1,6 @@
-@extends('admin.layouts.layouts')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid">
 
     <!-- Page Heading -->
@@ -292,7 +292,7 @@
                 <div class="card-body">
                     <div class="text-center">
                         <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                            src="{{ asset('assets/sbadmin/img/undraw_posting_photo.svg') }}" alt="...">
+                            src="<?php echo e(asset('assets/sbadmin/img/undraw_posting_photo.svg')); ?>" alt="...">
                     </div>
                     <p>Add some quality, svg illustrations to your project courtesy of <a target="_blank" rel="nofollow"
                             href="https://undraw.co/">unDraw</a>, a
@@ -321,11 +321,13 @@
     </div>
 
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
+<?php $__env->startSection('js'); ?>
     <!-- Page level plugins -->
-    <script src="{{ asset('assets/sbadmin/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/js/demo/chart-pie-demo.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/vendor/chart.js/Chart.min.js') }}"></script>
-@endsection
+    <script src="<?php echo e(asset('assets/sbadmin/js/demo/chart-area-demo.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/js/demo/chart-pie-demo.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/chart.js/Chart.min.js')); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\web-stu\code\resources\views/admin/dashboard.blade.php ENDPATH**/ ?>

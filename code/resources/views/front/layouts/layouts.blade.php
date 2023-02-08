@@ -80,11 +80,12 @@
           <div class="col-lg-4 col-md-6 footer-links">
             <div class="d-flex justify-content-start">
               <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Beranda</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Tentang Kami</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Portofolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#home">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#tentang-kami">Tentang Kami</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#dasar-hukum">Dasar Hukum</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portofolio">Portofolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact-us">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{{ asset('assets/file/compro.pdf') }}" download class="getstarted">Download Company Profile</a></li>
             </ul>
             </div>
           </div>

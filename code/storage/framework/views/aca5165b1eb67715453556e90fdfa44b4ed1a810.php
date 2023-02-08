@@ -12,14 +12,14 @@
     <title>STU Admin - Login</title>
 
     <!-- Custom fonts for this template-->
-    <link href="{{ asset('assets/sbadmin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="<?php echo e(asset('assets/sbadmin/vendor/fontawesome-free/css/all.min.css')); ?>" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="{{ asset('assets/sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link href="<?php echo e(asset('assets/sbadmin/css/sb-admin-2.min.css')); ?>" rel="stylesheet">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>" />
 
 </head>
 
@@ -43,7 +43,7 @@
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     <form class="user" id="form" method="post">
-                                        @csrf
+                                        <?php echo csrf_field(); ?>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 id="email" name="email" aria-describedby="emailHelp"
@@ -82,7 +82,7 @@
             <div class="modal-content">
                 <div class="modal-body pt-0" style="background-color: #FAFAF8; border-radius: 6px;">
                     <div class="text-center">
-                        <img style="border-radius: 4px; height: 140px;" src="{{ asset('assets/sbadmin/img/project/icon/loader.gif') }}" alt="Loading">
+                        <img style="border-radius: 4px; height: 140px;" src="<?php echo e(asset('assets/sbadmin/img/project/icon/loader.gif')); ?>" alt="Loading">
                         <h6 style="position: absolute; bottom: 10%; left: 37%;" class="pb-2">Mohon Tunggu..</h6>
                     </div>
                 </div>
@@ -92,16 +92,16 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="{{ asset('assets/sbadmin/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/jquery/jquery.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/bootstrap/js/bootstrap.min.js')); ?>"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/vendor/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/vendor/sweetalert/sweetalert.min.js')); ?>"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="{{ asset('assets/sbadmin/js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('assets/sbadmin/js/script-additional.js') }}"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/js/sb-admin-2.min.js')); ?>"></script>
+    <script src="<?php echo e(asset('assets/sbadmin/js/script-additional.js')); ?>"></script>
 
     <script>
         $('#form').submit(function(e){
@@ -131,4 +131,4 @@
 
 </body>
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\web-stu\code\resources\views/admin/auth/login.blade.php ENDPATH**/ ?>
