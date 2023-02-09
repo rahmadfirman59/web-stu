@@ -49,9 +49,9 @@
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#tentang-kami">Tentang Kami</a></li>
           <li><a class="nav-link scrollto" href="#dasar_hukum">Dasar Hukum</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto " href="#portfolio">Portofolio</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="#our_patner">Our Patner</a></li>
+          <li><a class="nav-link scrollto" href="#our_patner">Our Partners</a></li>
           <li><a class="getstarted scrollto" href="{{ asset('assets/file/compro.pdf') }}" download>Company Profile</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

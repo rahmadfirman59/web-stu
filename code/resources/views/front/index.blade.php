@@ -181,7 +181,7 @@
                     </div>
     
                     <div class="col-lg-4 col-12 text-center">
-                        <span data-purecounter-start="0" data-purecounter-end="563" data-purecounter-duration="1"
+                        <span data-purecounter-start="0" data-purecounter-end="75" data-purecounter-duration="1"
                             class="purecounter"></span>
                         <p>Pegawai</p>
                     </div>
@@ -653,7 +653,7 @@
         <div data-aos="fade-up">
 
             <div class="section-title">
-                <h2>Our Patners</h2>
+                <h2>Our Partners</h2>
                 <p>Kami juga bekerja sama dengan perusahaan perusahaan tambang khususnya nikel.</p>
             </div>
 
