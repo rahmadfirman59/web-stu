@@ -10,27 +10,27 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/techie/img/favicon/apple-touch-icon.png') }}">
-  <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/techie/img/favicon/favicon-32x32.png') }}">
-  <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/techie/img/favicon/favicon-16x16.png') }}">
-  <link rel="manifest" href="{{ asset('assets/techie/img/favicon/site.webmanifest') }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo e(asset('assets/techie/img/favicon/apple-touch-icon.png')); ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo e(asset('assets/techie/img/favicon/favicon-32x32.png')); ?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo e(asset('assets/techie/img/favicon/favicon-16x16.png')); ?>">
+  <link rel="manifest" href="<?php echo e(asset('assets/techie/img/favicon/site.webmanifest')); ?>">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('assets/techie/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/techie/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/techie/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/techie/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/techie/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets\techie\vendor\owl-carousel\owl.carousel.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('assets/techie/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/vendor/aos/aos.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/vendor/bootstrap/css/bootstrap.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/vendor/bootstrap-icons/bootstrap-icons.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/vendor/boxicons/css/boxicons.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/vendor/glightbox/css/glightbox.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets\techie\vendor\owl-carousel\owl.carousel.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/vendor/swiper/swiper-bundle.min.css')); ?>" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset('assets/techie/css/style.css') }}" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie/css/style.css')); ?>" rel="stylesheet">
 
-  @yield('css')
+  <?php echo $__env->yieldContent('css'); ?>
 
 
 </head>
@@ -40,7 +40,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center justify-content-between">
-      <a href="#" class="logo"><img src="{{ asset('assets/techie/img/logo-1.png') }}" alt="" class="img-fluid"></a>
+      <a href="#" class="logo"><img src="<?php echo e(asset('assets/techie/img/logo-1.png')); ?>" alt="" class="img-fluid"></a>
       <h5 class="logo"><a href="#top">PT. SULAWESI TAMBANG UTAMA</a></h5>
       <!-- Uncomment below if you prefer to use an image logo -->
 
@@ -52,7 +52,7 @@
           <li><a class="nav-link scrollto " href="#portfolio">Portofolio</a></li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
           <li><a class="nav-link scrollto" href="#our_patner">Our Partners</a></li>
-          <li><a class="getstarted scrollto" href="{{ asset('assets/file/compro.pdf') }}" download>Company Profile</a></li>
+          <li><a class="getstarted scrollto" href="<?php echo e(asset('assets/file/compro.pdf')); ?>" download>Company Profile</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -60,7 +60,7 @@
     </div>
   </header><!-- End Header -->
 
-  @yield('content')
+  <?php echo $__env->yieldContent('content'); ?>
 
   <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
     <i class="bi bi-whatsapp"></i>
@@ -74,7 +74,7 @@
         <div class="row">
 
           <div class="col-lg-4 col-md-6 footer-contact">
-            <img src="{{ asset('assets/techie/img/logo-1.png') }}" class="img-fluid" width="75px" alt="">
+            <img src="<?php echo e(asset('assets/techie/img/logo-1.png')); ?>" class="img-fluid" width="75px" alt="">
             <h3 class="mt-3">PT. SULAWESI TAMBANG UTAMA</h3>
             <p>
               <strong>Phone:</strong> +62 812 3336 2166<br>
@@ -90,7 +90,7 @@
               <li><i class="bx bx-chevron-right"></i> <a href="#dasar-hukum">Dasar Hukum</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#portofolio">Portofolio</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#contact-us">Contact Us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="{{ asset('assets/file/compro.pdf') }}" download class="getstarted">Download Company Profile</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="<?php echo e(asset('assets/file/compro.pdf')); ?>" download class="getstarted">Download Company Profile</a></li>
             </ul>
             </div>
           </div>
@@ -141,21 +141,21 @@
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('assets/techie/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('assets/techie/js/jquery-3.6.3.min.js') }}"></script>
-  <script src="{{ asset('assets/techie/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('assets/techie/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('assets/techie/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('assets/techie/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('assets/techie/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('assets\techie\vendor\owl-carousel\owl.carousel.min.js') }}"></script>
-  <script src="{{ asset('assets/techie/vendor/php-email-form/validate.js') }}"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/purecounter/purecounter_vanilla.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/js/jquery-3.6.3.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/aos/aos.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/bootstrap/js/bootstrap.bundle.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/glightbox/js/glightbox.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/isotope-layout/isotope.pkgd.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/swiper/swiper-bundle.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets\techie\vendor\owl-carousel\owl.carousel.min.js')); ?>"></script>
+  <script src="<?php echo e(asset('assets/techie/vendor/php-email-form/validate.js')); ?>"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{ asset('assets/techie/js/main.js') }}"></script>
+  <script src="<?php echo e(asset('assets/techie/js/main.js')); ?>"></script>
 
-  @yield('script')
+  <?php echo $__env->yieldContent('script'); ?>
 
 </body>
 
-</html>
+</html><?php /**PATH C:\xampp\htdocs\web-stu\code\resources\views/front/layouts/layouts.blade.php ENDPATH**/ ?>

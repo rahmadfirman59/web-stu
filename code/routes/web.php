@@ -14,18 +14,6 @@ use Illuminate\Support\Facades\Redirect;
 |
 */
 
-// Route::get('storage/{folder}/{filename}', function ($folder, $filename) {
-//     $path = base_path( '/public/' . $folder . '/' . $filename);
-    // if (!File::exists($path)) {
-    //     abort(404);
-    // }
-    // $file = File::get($path);
-    // $type = File::MimeType($path);
-    // $response = Response::make($file, 200);
-    // $response->header("Content-Type", $type);
-//     return redirect::route($path);
-// });
-
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -48,6 +36,20 @@ Route::group(['middleware' => ['checklogin']], function () {
             Route::post('update', [App\Http\Controllers\admin\SliderController::class, 'update']);
             Route::delete('delete/{id}', [App\Http\Controllers\admin\SliderController::class, 'delete']);
         });
+
+        Route::prefix('portofolio')->group(function(){
+            Route::prefix('kategori')->group(function(){
+                Route::get('/', [App\Http\Controllers\admin\KategoriController::class, 'index'])->name('admin.portofolio.kategori');
+                Route::get('datatables', [App\Http\Controllers\admin\KategoriController::class, 'datatables']);
+                Route::get('createSlug', [App\Http\Controllers\admin\KategoriController::class, 'createSlug']);
+                Route::get('detail/{id}', [App\Http\Controllers\admin\KategoriController::class, 'detail']);
+                Route::post('store', [App\Http\Controllers\admin\KategoriController::class, 'store']);
+                Route::post('update', [App\Http\Controllers\admin\KategoriController::class, 'update']);
+                Route::delete('delete/{id}', [App\Http\Controllers\admin\KategoriController::class, 'delete']);
+            });
+
+        });
+
     
     
         Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');

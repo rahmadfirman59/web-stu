@@ -128,7 +128,7 @@
                 var url_edit = url + "/detail/" + data.id;
                 var url_delete = url + "/delete/" + data.id;
                 $('td:eq(1)', row).html(`
-                <a href="<?php echo e(asset( 'slider/${data.gambar}')); ?>" target="_blank" class="btn-sm btn-primary mr-1">
+                <a href="<?php echo e(asset( 'code/public/storage/slider/${data.gambar}')); ?>" target="_blank" class="btn-sm btn-primary mr-1">
                     <i class="far fa-file-alt"></i>
                     Lihat Foto
                 </a>
@@ -230,7 +230,7 @@
     function edit(url){
         save_method = 'edit';
         $("#modal").modal('show');
-        $(".modal-title").text("Produk Edit");
+        $(".modal-title").text("Slider Edit");
         $("#modal_loading").modal('show');
         $.ajax({
             url : url,
@@ -239,13 +239,14 @@
             success: function(response){
                 setTimeout(function () {  $('#modal_loading').modal('hide'); }, 500);
                 $("#form_upload")[0].reset();
+                $('#preview_gambar').parent().css("display", "flex");
                 $("#image-warning").css("display", "block");
                 Object.keys(response).forEach(function (key) {
                     if(key !== 'gambar'){
                         var elem_name = $('[name=' + key + ']');
                         elem_name.val(response[key]);
                     }
-                    $("#preview_gambar").attr("src", "/storage/sliders/" + response['gambar']);
+                    $("#preview_gambar").attr("src", "<?php echo e(asset( 'code/public/storage/slider')); ?>" + "/" + response['gambar']);
                 });
             },error: function (jqXHR, textStatus, errorThrown){
                 setTimeout(function () {  $('#modal_loading').modal('hide'); }, 500);

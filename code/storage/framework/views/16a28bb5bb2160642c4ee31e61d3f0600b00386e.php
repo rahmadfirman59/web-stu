@@ -78,6 +78,18 @@
                     <span>Slider</span></a>
             </li>
 
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Portofolio
+            </div>
+
+            <li class="nav-item <?php echo e((request()->is('admin/portofolio/kategori')) ? 'active' : ''); ?>">
+                <a class="nav-link" href="<?php echo e(route('admin.portofolio.kategori')); ?>">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Kategori</span></a>
+            </li>
 
 
             

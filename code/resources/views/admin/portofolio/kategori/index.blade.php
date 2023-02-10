@@ -3,12 +3,12 @@
 @section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Slider</h1>
+        <h1 class="h3 mb-0 text-gray-800">Portofolio | Kategori</h1>
     </div>
 
     <div class="card shadow mb-4">
         <div class="card-header py-3 d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">Data Slider</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Kategori</h6>
             <div class="card-header-action">
                 <button type="button" style="margin-right: 10px" class="btn btn-warning"
                     onclick="add('Tambah Data');"><i class="fa fa-plus mr-1"></i>
@@ -21,8 +21,8 @@
                     <thead>
                         <tr class="table-primary text-light">
                             <th>No</th>
-                            <th>Gambar</th>
-                            <th>Keterangan</th>
+                            <th>Kategori</th>
+                            <th>Kategori-Slug</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -46,36 +46,26 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form id="form_upload" method="POST" autocomplete="off" enctype="multipart/form-data">
-                @csrf
+            <form id="form_upload" method="POST" autocomplete="off">
                 <input type="text" id="id" name="id" hidden>
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="form-group">
-                                <label class="d-block">Gambar</label>
-                                <div class="my-3" style="display: flex">
-                                    <img width="25%" id="preview_gambar" src="" alt="preview_image">
-                                    <p style="margin-left: 15px; color: #6c757d; font-weight: bold">*Preview Image</p>
-                                </div>
-                                <span style="font-style: italic; color: rgb(131, 131, 131); display: block"
-                                    id="image-warning">*Jika gambar tidak diubah tidak perlu upload gambar</span>
-                                <input type="file" onchange="previewFile(this);" name="gambar" class="form-control"
-                                    id="gambar" accept="image/png, image/jpeg, image/jpg, image/webp">
-                                <span class="d-flex text-danger invalid-feedback" id="invalid-gambar-feedback"></span>
+                                <label>Kategori</label>
+                                <input type="text" name="kategori" id="kategori" class="form-control">
                             </div>
                         </div>
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="form-group">
-                                <label>Keterangan</label>
-                                <input type="text" name="keterangan" id="keterangan" class="form-control">
-                                <span class="d-flex text-danger invalid-feedback" id="invalid-keterangan-feedback"></span>
+                                <label>Kategori Slug</label>
+                                <input type="text" name="kategori_slug" id="kategori_slug" class="form-control">
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer bg-whitesmoke br">
-                    <button type="button" class="btn btn-secondary close" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-warning">Simpan</button>
                 </div>
             </form>
@@ -115,24 +105,18 @@
                     orderable: false
                 },
                 {
-                    data: 'gambar'
+                    data: 'kategori'
                 },
                 {
-                    data: 'keterangan'
+                    data: 'kategori_slug'
                 },
                 {
-                    data: 'keterangan'
+                    data: 'kategori'
                 },
             ],
             rowCallback: function (row, data) {
                 var url_edit = url + "/detail/" + data.id;
                 var url_delete = url + "/delete/" + data.id;
-                $('td:eq(1)', row).html(`
-                <a href="{{ asset( 'code/public/storage/slider/${data.gambar}'); }}" target="_blank" class="btn-sm btn-primary mr-1">
-                    <i class="far fa-file-alt"></i>
-                    Lihat Foto
-                </a>
-            `);
                 $('td:eq(3)', row).html(`
                 <button class="btn btn-info btn-sm mr-1" onclick="edit('${url_edit}')"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-danger btn-sm" onclick="delete_action('${url_delete}')"><i class="fa fa-trash"></i></button>
@@ -144,39 +128,25 @@
         });
     });
 
-    function previewFile(input){
-        var file = $("input[type=file]").get(0).files[0];
- 
-        if(file){
-            var reader = new FileReader();
- 
-            reader.onload = function(){
-                $('#preview_gambar').parent().addClass("my-3");
-                $('#preview_gambar').parent().css("display", "flex");
-                $("#preview_gambar").attr("src", reader.result);
-            }
- 
-            reader.readAsDataURL(file);
-        }
-    }
-
     $('.close').click(() => {
         $('#modal').modal('hide')
-    })
+    });
 
+    $('#kategori').on("change", function(){
+        fetch( url + '/createSlug?kategori=' + $('#kategori').val())
+            .then(response => response.json())
+            .then(data =>  $('#kategori_slug').val(data.kategori_slug))
+    });
 
     function add(message) {
         $("#modal").modal('show');
         $("#form_upload")[0].reset();
         $(".modal-title").text(message);
-        $("#image-warning").css("display", "none");
-        $("#preview_gambar").attr("src", "");
-        $('#preview_gambar').parent().removeClass("my-3");
-        $('#preview_gambar').parent().css("display", "none");
     }
 
     $('#form_upload').submit(function (e) {
         e.preventDefault();
+        
         $("#modal_loading").modal('show');
 
         if ($('#id').val() == '') {
@@ -185,15 +155,10 @@
             $url = url + "/update";
         }
 
-        var formData = new FormData(this);
-
         $.ajax({
             url: $url,
             type: "POST",
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
+            data: $('#form_upload').serialize(),
             datatype: 'JSON',
             success: function (response) {
                 setTimeout(function () {
@@ -206,9 +171,8 @@
                     $('#modal').modal('hide');
                     $('#dataTable').DataTable().ajax.reload();
                 } else {
+                    console.log(response)
                     Object.keys(response.message).forEach(function (key) {
-                        console.log(response.message[key])
-                        console.log(key);
                         var elem_name = $('[name=' + key + ']');
                         var elem_feedback = $('[id=invalid-' + key + '-feedback' + ']');
                         elem_name.addClass('is-invalid');

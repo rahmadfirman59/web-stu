@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Models\Slider;
 use Yajra\Datatables\Datatables;
@@ -48,11 +48,17 @@ class SliderController extends Controller
             ];
         }
 
-        $request->file('gambar')->store('slider');
-        DB::table('sliders')->insert([
-            "gambar" => $request->file('gambar'),
-            "keterangan" => $request['keterangan'],
-        ]);
+        $image = $request->file('gambar')->hashName();
+        $request->file('gambar')->store('storage/slider');
+
+        $values = array(
+            'id' => $request['id'],
+            'keterangan' => $request['keterangan'],
+            'gambar' => $image,
+        );
+
+        Slider::create($values);
+
 
         return [
             'status' => 200,
@@ -64,13 +70,11 @@ class SliderController extends Controller
     public function update(Request $request){
         $validator = Validator::make($request->all(), [
             'id' => 'required',
-            'kategori' => 'required',
-            'kategori_slug' => 'required'
+            'keterangan' => 'required',
         ],
         [
             'id.required' => 'Ooopss.... Terjadi Kesalahan ',
-            'kategori.required' => 'Kategori Belum Diisi',
-            'kategori_slug.required' => 'Kategori Slug Belum Diisi',
+            'keterangan.required' => 'Keterangan Belum Diisi',
         ]);
 
         if($validator->fails()){
@@ -79,6 +83,25 @@ class SliderController extends Controller
                 'message' => $validator->errors()->first()
             ];
         }
+        $slider = Slider::find($request->id);
+
+        if (request()->hasFile('gambar') && request('gambar') != '') {
+            $imagePath = public_path('storage/slider/'.$slider->gambar);
+            if(File::exists($imagePath)){
+                unlink($imagePath);
+            }
+        }
+        
+        request()->file('gambar')->store('storage/slider');
+        $image = $request->file('gambar')->hashName();
+        $values = array(
+            'id' => $request['id'],
+            'keterangan' => $request['keterangan'],
+            'gambar' => $image,
+        );
+        
+        $slider->update($values);
+
         
         return [
             'status' => 200,
@@ -88,12 +111,12 @@ class SliderController extends Controller
 
     public function delete($id){
         $slider = Slider::where('id',$id)->first();
-        Storage::delete("public/slider-image/" . $slider['gambar_hash']);
+        File::delete("code/public/storage/slider/" . $slider['gambar']);
         Slider::where('id', $id)->delete();
 
         return [
             'status' => 200,
-            'message' => 'Data berhasil didelete'
+            'message' => 'Data berhasil Dihapus'
         ];
     }
 }
