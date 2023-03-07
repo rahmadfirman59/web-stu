@@ -39,13 +39,21 @@ Route::group(['middleware' => ['checklogin']], function () {
 
         Route::prefix('portofolio')->group(function(){
             Route::prefix('kategori')->group(function(){
-                Route::get('/', [App\Http\Controllers\admin\KategoriController::class, 'index'])->name('admin.portofolio.kategori');
-                Route::get('datatables', [App\Http\Controllers\admin\KategoriController::class, 'datatables']);
-                Route::get('createSlug', [App\Http\Controllers\admin\KategoriController::class, 'createSlug']);
-                Route::get('detail/{id}', [App\Http\Controllers\admin\KategoriController::class, 'detail']);
-                Route::post('store', [App\Http\Controllers\admin\KategoriController::class, 'store']);
-                Route::post('update', [App\Http\Controllers\admin\KategoriController::class, 'update']);
-                Route::delete('delete/{id}', [App\Http\Controllers\admin\KategoriController::class, 'delete']);
+                Route::get('/', [App\Http\Controllers\admin\portofolio\KategoriController::class, 'index'])->name('admin.portofolio.kategori');
+                Route::get('datatables', [App\Http\Controllers\admin\portofolio\KategoriController::class, 'datatables']);
+                Route::get('detail/{id}', [App\Http\Controllers\admin\portofolio\KategoriController::class, 'detail']);
+                Route::post('store', [App\Http\Controllers\admin\portofolio\KategoriController::class, 'store']);
+                Route::post('update', [App\Http\Controllers\admin\portofolio\KategoriController::class, 'update']);
+                Route::delete('delete/{id}', [App\Http\Controllers\admin\portofolio\KategoriController::class, 'delete']);
+            });
+
+            Route::prefix('image')->group(function(){
+                Route::get('/', [App\Http\Controllers\admin\portofolio\ImageController::class, 'index'])->name('admin.portofolio.image');
+                Route::get('datatables', [App\Http\Controllers\admin\portofolio\ImageController::class, 'datatables']);
+                Route::get('detail/{id}', [App\Http\Controllers\admin\portofolio\ImageController::class, 'detail']);
+                Route::post('store', [App\Http\Controllers\admin\portofolio\ImageController::class, 'store']);
+                Route::post('update', [App\Http\Controllers\admin\portofolio\ImageController::class, 'update']);
+                Route::delete('delete/{id}', [App\Http\Controllers\admin\portofolio\ImageController::class, 'delete']);
             });
 
         });

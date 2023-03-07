@@ -1,6 +1,6 @@
-@extends('admin.layouts.layouts')
 
-@section('content')
+
+<?php $__env->startSection('content'); ?>
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Portofolio | Kategori</h1>
@@ -22,7 +22,6 @@
                         <tr class="table-primary text-light">
                             <th>No</th>
                             <th>Kategori</th>
-                            <th>Kategori-Slug</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -33,10 +32,10 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
 
-@section('modal')
+<?php $__env->startSection('modal'); ?>
 <div class="modal fade" role="dialog" id="modal" data-keyboard="false" data-backdrop="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -56,12 +55,6 @@
                                 <input type="text" name="kategori" id="kategori" class="form-control">
                             </div>
                         </div>
-                        <div class="col-12 col-md-12 col-lg-12">
-                            <div class="form-group">
-                                <label>Kategori Slug</label>
-                                <input type="text" name="kategori_slug" id="kategori_slug" class="form-control">
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="modal-footer bg-whitesmoke br">
@@ -72,9 +65,9 @@
         </div>
     </div>
 </div>
-@endsection
+<?php $__env->stopSection(); ?>
 
-@section('js')
+<?php $__env->startSection('js'); ?>
 <script>
     var url = window.location.href;
 
@@ -88,7 +81,7 @@
             },
             columnDefs: [{
                     className: 'text-center',
-                    targets: [0, 3]
+                    targets: [0, 2]
                 },
                 {
                     width: "7%",
@@ -96,7 +89,7 @@
                 },
                 {
                     orderable: false,
-                    targets: [3]
+                    targets: [2]
                 }
             ],
             columns: [{
@@ -108,16 +101,13 @@
                     data: 'kategori'
                 },
                 {
-                    data: 'kategori_slug'
-                },
-                {
                     data: 'kategori'
                 },
             ],
             rowCallback: function (row, data) {
                 var url_edit = url + "/detail/" + data.id;
                 var url_delete = url + "/delete/" + data.id;
-                $('td:eq(3)', row).html(`
+                $('td:eq(2)', row).html(`
                 <button class="btn btn-info btn-sm mr-1" onclick="edit('${url_edit}')"><i class="fa fa-edit"></i></button>
                 <button class="btn btn-danger btn-sm" onclick="delete_action('${url_delete}')"><i class="fa fa-trash"></i></button>
             `);
@@ -130,12 +120,6 @@
 
     $('.close').click(() => {
         $('#modal').modal('hide')
-    });
-
-    $('#kategori').on("change", function(){
-        fetch( url + '/createSlug?kategori=' + $('#kategori').val())
-            .then(response => response.json())
-            .then(data =>  $('#kategori_slug').val(data.kategori_slug))
     });
 
     function add(message) {
@@ -171,7 +155,6 @@
                     $('#modal').modal('hide');
                     $('#dataTable').DataTable().ajax.reload();
                 } else {
-                    console.log(response)
                     Object.keys(response.message).forEach(function (key) {
                         var elem_name = $('[name=' + key + ']');
                         var elem_feedback = $('[id=invalid-' + key + '-feedback' + ']');
@@ -206,11 +189,8 @@
                 $('#preview_gambar').parent().css("display", "flex");
                 $("#image-warning").css("display", "block");
                 Object.keys(response).forEach(function (key) {
-                    if(key !== 'gambar'){
-                        var elem_name = $('[name=' + key + ']');
-                        elem_name.val(response[key]);
-                    }
-                    $("#preview_gambar").attr("src", "{{ asset( 'code/public/storage/slider') }}" + "/" + response['gambar']);
+                    var elem_name = $('[name=' + key + ']');
+                    elem_name.val(response[key]);
                 });
             },error: function (jqXHR, textStatus, errorThrown){
                 setTimeout(function () {  $('#modal_loading').modal('hide'); }, 500);
@@ -254,4 +234,6 @@
     }
 
 </script>
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('admin.layouts.layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\web-stu\code\resources\views/admin/portofolio/portofolio-kategori/index.blade.php ENDPATH**/ ?>

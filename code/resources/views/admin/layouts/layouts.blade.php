@@ -19,13 +19,22 @@
     
     <!-- Custom styles for this template-->
     <link href="{{ asset('assets\sbadmin\vendor\bootstrap\css\bootstrap.min.css') }}" rel="stylesheet" >
-    <link href="{{ asset('assets/sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets\sbadmin\css\datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets\sbadmin\css\style-addtional.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets\sbadmin\vendor\select2\dist\css\select2.min.css') }}" rel="stylesheet" >
 
     <style>
         .dataTables_wrapper{
             font-size: 13px!important;
+        }
+
+        .select2 > *{
+            font-size: 14px;
+        }
+
+        .select2-selection{
+            height: calc(1.5em + .75rem + 2px)!important;
         }
 
         .card-header-action{
@@ -72,6 +81,11 @@
                 
             <hr class="sidebar-divider">
 
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Slider
+            </div>
+
             <li class="nav-item {{ (request()->is('admin/slider')) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('slider') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -89,6 +103,12 @@
                 <a class="nav-link" href="{{ route('admin.portofolio.kategori') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Kategori</span></a>
+            </li>
+
+            <li class="nav-item {{ (request()->is('admin/portofolio/image')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.portofolio.image') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Image</span></a>
             </li>
 
 
@@ -379,17 +399,18 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('assets/sbadmin/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('assets\sbadmin\vendor\bootstrap\js\bootstrap.bundle.min.js') }}"></script>
-
+    
     <!-- Core plugin JavaScript-->
-    <script src="{{ asset('assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
+    {{-- <script src="{{ asset('assets/sbadmin/vendor/jquery-easing/jquery.easing.min.js') }}"></script> --}}
+    
     <!-- Custom scripts for all pages-->
     <script src="{{ asset('assets/sbadmin/js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('assets/sbadmin/vendor/sweetalert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/sbadmin/js/script-additional.js') }}"></script>
-
+    
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/sbadmin/js/datatables.min.js') }}"></script>
+    <script src="{{ asset('assets\sbadmin\vendor\select2\dist\js\select2.min.js') }}"></script>
 
     @yield('js')
 

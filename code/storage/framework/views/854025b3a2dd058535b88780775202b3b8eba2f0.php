@@ -28,6 +28,15 @@
         width: 350px !important;
     }
 
+    .counts{
+        margin-top: 50px;
+    }
+
+    a.getstarted:hover{
+        color: black!important;
+        background: white;
+    }
+
     .owl-item {
         display: flex;
         justify-content: center;
@@ -133,9 +142,6 @@
         <div class="container">
 
             <div class="row">
-                <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="150">
-                    <img src="<?php echo e(asset('assets/img/about.jpg')); ?>" class="img-fluid" alt="">
-                </div>
                 <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content" data-aos="fade-right">
                     <h3>Tentang Kami</h3>
                     <p class="fst-italic">
@@ -395,9 +401,7 @@
             </div>
 
         </div>
-    </section><!-- End Portfolio Section -->
-
-    
+    </section>
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact section-bg">
@@ -442,7 +446,7 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="mailto:emailid@example.com" method="post" role="form" class="php-email-form">
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
@@ -606,7 +610,7 @@
                 }
             }
         });
-    })
+    });
 
 </script>
 <?php $__env->stopSection(); ?>

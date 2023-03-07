@@ -1,6 +1,6 @@
+@extends('admin.layouts.layouts')
 
-
-<?php $__env->startSection('content'); ?>
+@section('content')
 <div class="container-fluid">
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Portofolio | Kategori</h1>
@@ -32,10 +32,10 @@
         </div>
     </div>
 </div>
-<?php $__env->stopSection(); ?>
+@endsection
 
 
-<?php $__env->startSection('modal'); ?>
+@section('modal')
 <div class="modal fade" role="dialog" id="modal" data-keyboard="false" data-backdrop="false">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -65,9 +65,9 @@
         </div>
     </div>
 </div>
-<?php $__env->stopSection(); ?>
+@endsection
 
-<?php $__env->startSection('js'); ?>
+@section('js')
 <script>
     var url = window.location.href;
 
@@ -234,6 +234,4 @@
     }
 
 </script>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('admin.layouts.layouts', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp\htdocs\web-stu\code\resources\views/admin/portofolio/kategori/index.blade.php ENDPATH**/ ?>
+@endsection

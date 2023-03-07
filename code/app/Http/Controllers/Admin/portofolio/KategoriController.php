@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\portofolio;
 
 use App\Http\Controllers\Controller;
 use App\Models\Kategori;
@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class KategoriController extends Controller
 {
     public function index(){
-        return view('admin.portofolio.kategori.index');
+        return view('admin.portofolio.portofolio-kategori.index');
     }
 
     public function datatables(){
@@ -26,29 +26,27 @@ class KategoriController extends Controller
         return Kategori::find($id);
     }
 
-    public function createSlug(Request $request){
-        $slug = SlugService::createSlug(Kategori::class, 'kategori_slug', $request->kategori);
-        return response()->json(['kategori_slug' => $slug]);
-    }
-
     public function store(Request $request){
-        // $validator = Validator::make($request->all(), [
-        //     'kategori' => 'required',
-        //     'kategori_slug' => 'required'
-        // ],
-        // [
-        //     'kategori.required' => 'Kategori Belum Diisi',
-        //     'kategori_slug.required' => 'Kategori Slug Belum Diisi',
-        // ]);
+        $validator = Validator::make($request->all(), [
+            'kategori' => 'required',
+        ],
+        [
+            'kategori.required' => 'Kategori Belum Diisi',
+        ]);
 
-        // if($validator->fails()){
-        //     return [
-        //         'status' => 300,
-        //         'message' => $validator->errors()->first()
-        //     ];
-        // }
+        if($validator->fails()){
+            return [
+                'status' => 300,
+                'message' => $validator->errors()->first()
+            ];
+        }
         
-        Kategori::create($request->all());
+        $slug = SlugService::createSlug(Kategori::class, 'kategori_slug', $request->kategori);
+        Kategori::create([
+            'kategori' => $request->kategori,
+            'kategori_slug' => $slug
+        ]);
+
         return [
             'status' => 200,
             'message' => 'Data Berhasil Ditambahkan'
@@ -59,12 +57,10 @@ class KategoriController extends Controller
         $validator = Validator::make($request->all(), [
             'id' => 'required',
             'kategori' => 'required',
-            'kategori_slug' => 'required'
         ],
         [
             'id.required' => 'Ooopss.... Terjadi Kesalahan ',
             'kategori.required' => 'Kategori Belum Diisi',
-            'kategori_slug.required' => 'Kategori Slug Belum Diisi',
         ]);
 
         if($validator->fails()){
@@ -75,9 +71,11 @@ class KategoriController extends Controller
         }
 
         $kategori = Kategori::find($request->id);
+        $slug = SlugService::createSlug(Kategori::class, 'kategori_slug', $request->kategori);
+
         $kategori->update([
             'kategori' => $request->kategori,
-            'kategori_slug' => $request->kategori_slug,
+            'kategori_slug' => $slug,
         ]);
         
         return [

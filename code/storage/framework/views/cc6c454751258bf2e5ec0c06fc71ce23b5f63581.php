@@ -46,13 +46,13 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#tentang-kami">Tentang Kami</a></li>
-          <li><a class="nav-link scrollto" href="#dasar_hukum">Dasar Hukum</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portofolio</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="nav-link scrollto" href="#our_patner">Our Partners</a></li>
-          <li><a class="getstarted scrollto" href="<?php echo e(asset('assets/file/compro.pdf')); ?>" download>Company Profile</a></li>
+          <li><a class="nav-link scrollto active" data-aos="fade-down" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" data-aos="fade-down" href="#tentang-kami">Tentang Kami</a></li>
+          <li><a class="nav-link scrollto" data-aos="fade-down" href="#dasar_hukum">Dasar Hukum</a></li>
+          <li><a class="nav-link scrollto " data-aos="fade-down" href="#portfolio">Portofolio</a></li>
+          <li><a class="nav-link scrollto" data-aos="fade-down" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto" data-aos="fade-down" href="#our_patner">Our Partners</a></li>
+          <li><a class="getstarted scrollto" data-aos="fade-down" href="<?php echo e(asset('assets/file/compro.pdf')); ?>" download>Company Profile</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -85,11 +85,11 @@
           <div class="col-lg-4 col-md-6 footer-links">
             <div class="d-flex justify-content-start">
               <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#home">Home</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#tentang-kami">Tentang Kami</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#dasar-hukum">Dasar Hukum</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#portofolio">Portofolio</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#contact-us">Contact Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#dasar_hukum">Dasar Hukum</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#portfolio">Portofolio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#contact">Contact Us</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="<?php echo e(asset('assets/file/compro.pdf')); ?>" download class="getstarted">Download Company Profile</a></li>
             </ul>
             </div>
