@@ -19,8 +19,10 @@ use Illuminate\Support\Facades\Redirect;
 // });
 
 Route::get('/', [App\Http\Controllers\Front\IndexController::class, 'index'])->name('front.index');
+Route::post('/contact', [App\Http\Controllers\Front\IndexController::class, 'sendMail'])->name('front.mail');
 Route::get('/admin', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('admin.login');
 Route::post('/admin/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+
 
 
 
@@ -56,6 +58,15 @@ Route::group(['middleware' => ['checklogin']], function () {
                 Route::delete('delete/{id}', [App\Http\Controllers\admin\portofolio\ImageController::class, 'delete']);
             });
 
+        });
+
+        Route::prefix('patner')->group(function(){
+            Route::get('/', [App\Http\Controllers\admin\PatnerController::class, 'index'])->name('admin.patner');
+            Route::get('datatables', [App\Http\Controllers\admin\PatnerController::class, 'datatables'])->name('admin.patner.datatables');
+            Route::get('detail/{id}', [App\Http\Controllers\admin\PatnerController::class, 'detail']);
+            Route::post('store', [App\Http\Controllers\admin\PatnerController::class, 'store']);
+            Route::post('update', [App\Http\Controllers\admin\PatnerController::class, 'update']);
+            Route::delete('delete/{id}', [App\Http\Controllers\admin\PatnerController::class, 'delete']);
         });
 
     

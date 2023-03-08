@@ -10,8 +10,8 @@ class PortofolioImage extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
-    public function Kategori(){
-        $this->belongsTo(Kategori::class);
+    public function kategori(){
+        return $this->belongsTo(Kategori::class);
     }
 
 }

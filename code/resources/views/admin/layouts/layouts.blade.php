@@ -29,12 +29,20 @@
             font-size: 13px!important;
         }
 
+        .table tbody td{
+            vertical-align: middle;
+        }
+
         .select2 > *{
             font-size: 14px;
         }
 
         .select2-selection{
             height: calc(1.5em + .75rem + 2px)!important;
+        }
+
+        .select2-results__option{
+            font-size: 14px!important;
         }
 
         .card-header-action{
@@ -109,6 +117,19 @@
                 <a class="nav-link" href="{{ route('admin.portofolio.image') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Image</span></a>
+            </li>
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Patner
+            </div>
+
+            <li class="nav-item {{ (request()->is('admin/patner')) ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('admin.patner') }}">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Patner</span></a>
             </li>
 
 

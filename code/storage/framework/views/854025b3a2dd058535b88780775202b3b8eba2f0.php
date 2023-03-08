@@ -446,7 +446,11 @@
                 </div>
 
                 <div class="col-lg-6">
-                    <form action="mailto:emailid@example.com" method="post" role="form" class="php-email-form">
+                    <?php if(Session::has('status')): ?>
+                        <div class="alert alert-success"><?php echo e(Session::get('status')); ?></div>
+                    <?php endif; ?>
+                    <form action="<?php echo e(route('front.mail')); ?>" method="post" role="form" class="php-email-form">
+                        <?php echo csrf_field(); ?>
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
@@ -489,86 +493,22 @@
             </div>
 
             <div class="row gy-4 owl-carousel">
+                <?php $__currentLoopData = $patners; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patner): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
                     <div class="icon-box">
                         <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/sumber-swara-logo.png')); ?>" width="230px"
-                                alt="PT-Sumber-Swara-Pratama" srcset="">
-                        </div>
-                        <h4><a>PT Sumber Swarna Pratama</a></h4>
-                    </div>
-                </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-box">
-                        <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/smub-logo.png')); ?>"
-                                style="width: 220px!important" alt="PT-Sulawesi-Mineral-Bersama" srcset="">
-                        </div>
-                        <h4><a>PT. Sulawesi Mineral Bersama</a></h4>
-                    </div>
-                </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/satya-karya-mineral-logo.png')); ?>"
-                                width="250px" alt="PT-Satya-Karya-Mineral" srcset="">
-                        </div>
-                        <h4><a>PT. Satya Karya Mineral</a></h4>
-                    </div>
-                </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-box">
-                        <div class="image-content">
+                            <?php if(isset($patner->logo)): ?>
+                            <img src="<?php echo e(asset( 'code/public/storage/patner_logo/' . $patner->logo)); ?>" width="230px"
+                                alt="<?php echo e($patner->nama_perusahaan); ?>" srcset="">
+                            <?php else: ?>
                             <img src="<?php echo e(asset('assets/techie/img/no-image.png')); ?>"
-                                width="200px" alt="PT-Satya-Karya-Mineral" srcset="">
+                                width="200px" alt="<?php echo e($patner->nama_perusahaan); ?>" srcset="">
+                            <?php endif; ?>
                         </div>
-                        <h4><a>PT. Sihairong Mining International</a></h4>
+                        <h4><a><?php echo e($patner->nama_perusahaan); ?></a></h4>
                     </div>
                 </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="icon-box">
-                        <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/guoneng-mining-logo.png')); ?>"
-                                style="width: 180px!important" alt="PT-Guoneng-Mining-Investment" srcset="">
-                        </div>
-                        <h4><a>PT. Guoneng Mining Investment</a></h4>
-                    </div>
-                </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/jin-gili-logo.png')); ?>"
-                                style="width: 190px!important" alt="PT-Jin-Gili-International" srcset="">
-                        </div>
-                        <h4><a>PT. Jin Gili International</a></h4>
-                    </div>
-                </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/bsp-logo.png')); ?>"
-                                style="width: 230px!important" alt="PT-Borneo-Samudra-Perkasa" srcset="">
-                        </div>
-                        <h4><a>PT. Borneo Samudra Perkasa</a></h4>
-                    </div>
-                </div>
-
-                <div style="height: 340px" class="d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="icon-box">
-                        <div class="image-content">
-                            <img src="<?php echo e(asset('assets/techie/img/logo-patner/tigabeka-teknika-logo.png')); ?>"
-                                width="200px" alt="PT-Tigabeka-Teknika" srcset="">
-                        </div>
-                        <h4><a>PT. Tigabeka Teknika</a></h4>
-                    </div>
-                </div>
-
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
 
         </div>

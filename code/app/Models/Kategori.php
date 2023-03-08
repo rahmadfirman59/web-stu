@@ -19,4 +19,8 @@ class Kategori extends Model
             ]
         ];
     }
+
+    public function portofolioImage(){
+        return $this->hasMany(PortofolioImage::class);
+    }
 }

@@ -157,6 +157,9 @@
             }
  
             reader.readAsDataURL(file);
+        } else {
+            $("#preview_gambar").attr("src", "");
+            $('#preview_gambar').parent().css("display", "none");
         }
     }
 

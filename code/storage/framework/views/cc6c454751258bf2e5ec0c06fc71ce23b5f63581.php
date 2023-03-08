@@ -24,7 +24,7 @@
   <link href="<?php echo e(asset('assets/techie/vendor/bootstrap-icons/bootstrap-icons.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('assets/techie/vendor/boxicons/css/boxicons.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('assets/techie/vendor/glightbox/css/glightbox.min.css')); ?>" rel="stylesheet">
-  <link href="<?php echo e(asset('assets\techie\vendor\owl-carousel\owl.carousel.min.css')); ?>" rel="stylesheet">
+  <link href="<?php echo e(asset('assets/techie\vendor\owl-carousel\owl.carousel.min.css')); ?>" rel="stylesheet">
   <link href="<?php echo e(asset('assets/techie/vendor/swiper/swiper-bundle.min.css')); ?>" rel="stylesheet">
 
   <!-- Template Main CSS File -->
@@ -62,7 +62,7 @@
 
   <?php echo $__env->yieldContent('content'); ?>
 
-  <a href="https://api.whatsapp.com/send?phone=51955081075&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202." class="float" target="_blank">
+  <a href="https://api.whatsapp.com/send?phone=6281233362166&text=HALO%20PT%20SULAWESI%20TAMBANG%20UTAMA." class="float" target="_blank">
     <i class="bi bi-whatsapp"></i>
   </a>
 

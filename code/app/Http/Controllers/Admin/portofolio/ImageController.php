@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
-use App\Models\Slider;
 use App\Models\Kategori;
+use App\Models\PortofolioImage;
 use Yajra\Datatables\Datatables;
 
 class ImageController extends Controller
@@ -18,12 +18,12 @@ class ImageController extends Controller
         return view('admin.portofolio.portofolio-image.index', $data);
     }
 
-     public function detail($id){
-        return Slider::find($id);
+    public function detail($id){
+        return PortofolioImage::find($id);
     }
 
     public function datatables(){
-        $data = Slider::get();
+        $data = PortofolioImage::with('kategori')->get();
         return Datatables::of($data)
                     ->addIndexColumn()
                     ->make(true);
@@ -32,12 +32,12 @@ class ImageController extends Controller
     public function store(Request $request){
 
         $validator = Validator::make($request->all(), [
-            'gambar' => 'required|image|file|max:5050|mimes:jpeg,jpg,png',
-            'keterangan' => 'required',
+            'gambar' => 'required|image|file|max:5050|mimes:jpeg,jpg,png,webp',
+            'kategori_id' => 'required',
         ],
         [
             'gambar.required' => 'Harap Masukkan Gambar',
-            'keterangan.required' => 'Keterangan Belum Diisi',
+            'kategori_id.required' => 'Kategori Belum Diisi',
             'gambar.image' => 'Gambar Tidak Valid',
             'gambar.max' => 'Maksimal Ukuran Gambar 5 Megabyte',
             'gambar.mimes' => 'Yang anda Masukkan Bukan Gambar',
@@ -55,11 +55,11 @@ class ImageController extends Controller
 
         $values = array(
             'id' => $request['id'],
-            'keterangan' => $request['keterangan'],
+            'kategori_id' => $request['kategori_id'],
             'gambar' => $image,
         );
 
-        Slider::create($values);
+        PortofolioImage::create($values);
 
 
         return [
@@ -72,11 +72,11 @@ class ImageController extends Controller
     public function update(Request $request){
         $validator = Validator::make($request->all(), [
             'id' => 'required',
-            'keterangan' => 'required',
+            'kategori_id' => 'required',
         ],
         [
             'id.required' => 'Ooopss.... Terjadi Kesalahan ',
-            'keterangan.required' => 'Keterangan Belum Diisi',
+            'kategori_id.required' => 'Kategori Belum Diisi',
         ]);
 
         if($validator->fails()){
@@ -85,24 +85,29 @@ class ImageController extends Controller
                 'message' => $validator->errors()->first()
             ];
         }
-        $slider = Slider::find($request->id);
+        $PortofolioImage = PortofolioImage::find($request->id);
 
         if (request()->hasFile('gambar') && request('gambar') != '') {
-            $imagePath = public_path('storage/slider/'.$slider->gambar);
+            $imagePath = public_path('storage/portofolio/'.$PortofolioImage->gambar);
+            $image = $request->file('gambar')->hashName();
+            request()->file('gambar')->store('storage/portofolio');
+            $values = array(
+                'id' => $request['id'],
+                'kategori_id' => $request['kategori_id'],
+                'gambar' => $image,
+            );
             if(File::exists($imagePath)){
                 unlink($imagePath);
             }
+        }else{
+            $values = array(
+                'id' => $request['id'],
+                'kategori_id' => $request['kategori_id'],
+            );
         }
         
-        request()->file('gambar')->store('storage/slider');
-        $image = $request->file('gambar')->hashName();
-        $values = array(
-            'id' => $request['id'],
-            'keterangan' => $request['keterangan'],
-            'gambar' => $image,
-        );
         
-        $slider->update($values);
+        $PortofolioImage->update($values);
 
         
         return [
@@ -112,9 +117,9 @@ class ImageController extends Controller
     }
 
     public function delete($id){
-        $slider = Slider::where('id',$id)->first();
-        File::delete("code/public/storage/slider/" . $slider['gambar']);
-        Slider::where('id', $id)->delete();
+        $PortofolioImage = PortofolioImage::where('id',$id)->first();
+        File::delete("code/public/storage/portofolio/" . $PortofolioImage['gambar']);
+        PortofolioImage::where('id', $id)->delete();
 
         return [
             'status' => 200,

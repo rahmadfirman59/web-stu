@@ -51,7 +51,6 @@ class SliderController extends Controller
         $image = $request->file('gambar')->hashName();
         $request->file('gambar')->store('storage/slider');
 
-<<<<<<< Updated upstream
         $values = array(
             'id' => $request['id'],
             'keterangan' => $request['keterangan'],
@@ -59,14 +58,6 @@ class SliderController extends Controller
         );
 
         Slider::create($values);
-
-=======
-
-        DB::table('sliders')->insert([
-            "gambar" => $image,
-            "keterangan" => $request['keterangan'],
-        ]);
->>>>>>> Stashed changes
 
         return [
             'status' => 200,
