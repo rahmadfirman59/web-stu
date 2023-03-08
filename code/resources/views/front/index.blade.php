@@ -269,134 +269,22 @@
                 <div class="col-lg-12 d-flex justify-content-center">
                     <ul id="portfolio-flters">
                         <li data-filter="*" class="filter-active">All</li>
-                        <li data-filter=".filter-tambang">Aktifitas Tambang</li>
-                        <li data-filter=".filter-pengapalan">Aktifitas Pengapalan</li>
-                        <li data-filter=".filter-kantor">Operational Kantor</li>
+                        @foreach ($kategoris as $kategori)
+                            <li data-filter="{{ '.filter-' . $kategori->kategori_slug }}">{{ $kategori->kategori }}</li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
 
             <div class="row portfolio-container">
 
-                <div class="col-lg-4 col-md-6 portfolio-item filter-pengapalan">
+                @foreach ($portofolio as $p)
+                <div class="col-lg-4 col-md-6 portfolio-item {{ 'filter-' . $p->kategori->kategori_slug }}">
                     <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas pengapalan\1.jpeg') }}" class="img-fluid" alt="">
+                        <img src="{{ asset( 'code/public/storage/portofolio/' . $p->gambar); }}" class="img-fluid" alt="">
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-pengapalan">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas pengapalan\2.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-pengapalan">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas pengapalan\3.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-pengapalan">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas pengapalan\4.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-pengapalan">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas pengapalan\5.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\1.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\2.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\3.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\4.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\5.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\6.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\7.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\8.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-tambang">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\aktifitas tambang\9.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kantor">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\Operational Kantor & Work Shop\1.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kantor">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\Operational Kantor & Work Shop\2.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kantor">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\Operational Kantor & Work Shop\3.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kantor">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\Operational Kantor & Work Shop\4.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kantor">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\Operational Kantor & Work Shop\5.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-kantor">
-                    <div class="portfolio-wrap">
-                        <img src="{{ asset('assets\techie\img\example\Operational Kantor & Work Shop\6.jpeg') }}" class="img-fluid" alt="">
-                    </div>
-                </div>
+                @endforeach
 
             </div>
 

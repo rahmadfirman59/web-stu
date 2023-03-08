@@ -68,9 +68,9 @@
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="form-group">
                                 <label class="d-block">kategori</label>
+                                <span class="d-flex text-danger invalid-feedback"
+                                    id="invalid-kategori_id-feedback"></span>
                                 <select id="kategori_id" name="kategori_id" class="form-control select2">
-                                    <span class="d-flex text-danger invalid-feedback"
-                                        id="invalid-kategori-feedback"></span>
                                     <option></option>
                                     <?php $__currentLoopData = $data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e($item->id); ?>"><?php echo e($item->kategori); ?></option>
@@ -98,7 +98,7 @@
         $('#kategori_id').select2({
             width: '100%',
             placeholder: "Pilih Kategori",
-            dropdownParent: $("#modal")
+            dropdownParent: $("#modal"),
         });
 
         $('#dataTable').DataTable({
@@ -117,8 +117,12 @@
                     targets: [0]
                 },
                 {
+                    width: "200px",
+                    targets: [1]
+                },
+                {
                     orderable: false,
-                    targets: [3]
+                    targets: [1, 3]
                 }
             ],
             columns: [{
@@ -180,6 +184,9 @@
     function add(message) {
         $("#modal").modal('show');
         $("#form_upload")[0].reset();
+        $("#kategori_id").val('').trigger('change');
+        $("#kategori_id").removeClass("is-invalid");
+        $('.invalid-feedback').text('');
         $(".modal-title").text(message);
         $("#image-warning").css("display", "none");
         $("#preview_gambar").attr("src", "");
@@ -240,6 +247,8 @@
     function edit(url) {
         save_method = 'edit';
         $("#modal").modal('show');
+        $("#kategori_id").removeClass("is-invalid");
+        $('.invalid-feedback').text('');
         $(".modal-title").text("Slider Edit");
         $("#modal_loading").modal('show');
         $.ajax({

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use App\Models\Patner;
+use App\Models\PortofolioImage;
+use App\Models\Kategori;
 use PHPMailer\PHPMailer\Exception;
 //Load composer's autoloader
 require 'vendor/autoload.php';
@@ -21,6 +23,8 @@ class IndexController extends Controller
     public function index()
     {
         $data['patners'] = Patner::all();
+        $data['kategoris'] = Kategori::all();
+        $data['portofolio'] = PortofolioImage::with('kategori')->get();
         return view('front.index', $data);
     }
 

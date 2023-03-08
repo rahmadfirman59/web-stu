@@ -33,6 +33,10 @@
             vertical-align: middle;
         }
 
+        #kategori_id.is-invalid + span.select2-container .selection .select2-selection--single{
+            border: 1px solid red!important;
+        }
+
         .select2 > *{
             font-size: 14px;
         }
